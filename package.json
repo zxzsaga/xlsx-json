@@ -1,0 +1,27 @@
+{
+  "name": "xlsx2json",
+  "version": "0.0.1",
+  "description": "xlsx2json",
+  "main": "app.js",
+  "dependencies": {
+    "xlsx": "~0.7.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zxzsaga/xlsx2json.git"
+  },
+  "keywords": [
+    "xlsx",
+    "json"
+  ],
+  "author": "Xuanzhi Zhang",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/zxzsaga/xlsx2json/issues"
+  },
+  "homepage": "https://github.com/zxzsaga/xlsx2json"
+}
