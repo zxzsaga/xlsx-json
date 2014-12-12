@@ -1,40 +1,40 @@
 ** Use Cases Is King
-| atk | 200 |
-| def | 100 |
+| atk | 100 |
+| def | 200 |
 | hp  | 300 |
 to
 #+BEGIN_SRC
 {
-    "atk": 200,
-    "def": 100,
+    "atk": 100,
+    "def": 200,
     "hp": 300
 }
 #+END_SRC
 |                 | enabel | actions | vipRequired |
-| battle.mission  | true   |       1 | false       |
-| battle.sparkRob | true   |       2 | false       |
-| battle.arena    | true   |       3 | true        |
-| battle.boss     | true   |       4 | true        |
+| battle.pve      | true   |       1 | false       |
+| battle.pvp      | false  |       2 | false       |
+| battle.boss     | false  |       3 | true        |
+| battle.team     | true   |       4 | true        |
 to
 #+BEGIN_SRC
 {
     "battle": {
-        "mission": {
+        "pve": {
             "enable": true,
             "actions": 1,
             "vipRequired" false
         },
-        "sparkRob": {
-            "enable": true,
+        "pvp": {
+            "enable": false,
             "actions": 2,
             "vipRequired" false
         },
-        "arena": {
-            "enable": true,
+        "boss": {
+            "enable": false,
             "actions": 3,
             "vipRequired" true
         },
-        "boss": {
+        "team": {
             "enable": true,
             "actions": 4,
             "vipRequired" true
@@ -62,46 +62,46 @@ to
     ]
 }
 #+END_SRC
-|               | cost.S | cost.A | cost.B | cost.C | cost.D | levelReq | statusBonus |
-| upgradeStar.1 |    900 |    600 |    450 |    300 |    150 |       30 |           8 |
-| upgradeStar.2 |   1200 |    800 |    600 |    400 |    200 |       35 |          16 |
-| upgradeStar.3 |   1800 |   1200 |    900 |    600 |    300 |       45 |          24 |
+|           | card.S | card.A | card.B | card.C | card.D | vip | bonus |
+| rewards.1 |    900 |    600 |    450 |    300 |    150 |   3 |     8 |
+| rewards.2 |   1200 |    800 |    600 |    400 |    200 |   5 |    16 |
+| rewards.3 |   1800 |   1200 |    900 |    600 |    300 |   7 |    24 |
 to
 #+BEGIN_SRC
 {
-    "upgradeStar": {
+    "rewards": {
         "1": {
-            "cost": {
+            "card": {
                 "S": 900,
                 "A": 600,
                 "B": 450,
                 "C": 300,
                 "D": 150
             },
-            "levelReq": 30,
-            "statusBonus": 8
+            "vip": 3,
+            "bonus": 8
         },
         "2": {
-            "cost": {
+            "card": {
                 "S": 1200,
                 "A": 800,
                 "B": 600,
                 "C": 400,
                 "D": 200
             },
-            "levelReq": 35,
-            "statusBonus": 16
+            "vip": 5,
+            "bonus": 16
         },
         "3": {
-            "cost": {
+            "card": {
                 "S": 1800,
                 "A": 1200,
                 "B": 900,
                 "C": 600,
                 "D": 300
             },
-            "levelReq": 45,
-            "statusBonus": 24
+            "vip": 7,
+            "bonus": 24
         }
     }
 }
