@@ -1,25 +1,24 @@
 var fs = require('fs');
 var XLSX = require('xlsx');
 
-var url = '/Users/xuanzhi.zhang/Documents/forJSON.xlsx';
-var output = '/Users/xuanzhi.zhang/Documents/result.json';
+var task = require('./task.json');
 
-var workbook = XLSX.readFile(url);
-var sheetNames = workbook.SheetNames;
+task.forEach(function(job) {
+    var workbook = XLSX.readFile(job.input);    // var sheetNames = workbook.SheetNames;
+    var workSheet = workbook.Sheets[job.sheet];
+    var range = job.range;
+    var output = job.output;
 
-var sheet1 = workbook.Sheets[sheetNames[0]];
-var range = 'A1:H52';
-
-var arrOfArr = getArrayOfArrayByRange(sheet1, range);
-var JSONdata = arrayOfArrayToJSON(arrOfArr);
-fs.writeFile(output, JSON.stringify(JSONdata, null, '    '), 'utf8', function(err) {
-    if (err) {
-        console.log('oops, something wrong: ' + err);
-        return;
-    }
-    console.log('JSON saved');
+    var arrOfArr = getArrayOfArrayByRange(workSheet, range);
+    var json = arrayOfArrayToJSON(arrOfArr);
+    fs.writeFile(output, JSON.stringify(json, null, '    '), 'utf8', function(err) {
+        if (err) {
+            console.log('oops, something wrong: ' + err);
+            return;
+        }
+        console.log('JSON saved !');
+    });
 });
-
 
 /**
  * 获取 sheet 中指定 range 的 行列

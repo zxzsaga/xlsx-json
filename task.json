@@ -1,0 +1,8 @@
+[
+    {
+        "input": "xxx.xlsx",
+        "sheet": "sheetName1",
+        "range": "A1:H52",
+        "output": "xxxx.json"
+    }
+]
