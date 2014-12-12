@@ -1,0 +1,139 @@
+** Use Cases Is King
+| atk | 200 |
+| def | 100 |
+| hp  | 300 |
+to
+#+BEGIN_SRC
+{
+    "atk": 200,
+    "def": 100,
+    "hp": 300
+}
+#+END_SRC
+|                 | enabel | actions | vipRequired |
+| battle.mission  | true   |       1 | false       |
+| battle.sparkRob | true   |       2 | false       |
+| battle.arena    | true   |       3 | true        |
+| battle.boss     | true   |       4 | true        |
+to
+#+BEGIN_SRC
+{
+    "battle": {
+        "mission": {
+            "enable": true,
+            "actions": 1,
+            "vipRequired" false
+        },
+        "sparkRob": {
+            "enable": true,
+            "actions": 2,
+            "vipRequired" false
+        },
+        "arena": {
+            "enable": true,
+            "actions": 3,
+            "vipRequired" true
+        },
+        "boss": {
+            "enable": true,
+            "actions": 4,
+            "vipRequired" true
+        }
+    }
+}
+#+END_SRC
+|            |   id | type | amount |
+| rewards[0] | 1001 | item |      5 |
+| rewards[1] | 1002 | item |     10 |
+to
+#+BEGIN_SRC
+{
+    "rewards": [
+        {
+            "id": 1001,
+            "type": "item",
+            "amount": "5"
+        },
+        {
+            "id": 1002,
+            "type": "item",
+            "amount": 10
+        }
+    ]
+}
+#+END_SRC
+|               | cost.S | cost.A | cost.B | cost.C | cost.D | levelReq | statusBonus |
+| upgradeStar.1 |    900 |    600 |    450 |    300 |    150 |       30 |           8 |
+| upgradeStar.2 |   1200 |    800 |    600 |    400 |    200 |       35 |          16 |
+| upgradeStar.3 |   1800 |   1200 |    900 |    600 |    300 |       45 |          24 |
+to
+#+BEGIN_SRC
+{
+    "upgradeStar": {
+        "1": {
+            "cost": {
+                "S": 900,
+                "A": 600,
+                "B": 450,
+                "C": 300,
+                "D": 150
+            },
+            "levelReq": 30,
+            "statusBonus": 8
+        },
+        "2": {
+            "cost": {
+                "S": 1200,
+                "A": 800,
+                "B": 600,
+                "C": 400,
+                "D": 200
+            },
+            "levelReq": 35,
+            "statusBonus": 16
+        },
+        "3": {
+            "cost": {
+                "S": 1800,
+                "A": 1200,
+                "B": 900,
+                "C": 600,
+                "D": 300
+            },
+            "levelReq": 45,
+            "statusBonus": 24
+        }
+    }
+}
+#+END_SRC
+|test.a[1][2].b|120|
+to
+#+BEGIN_SRC
+{
+    "test": {
+        "a": [
+            null,
+            [
+                null,
+                null,
+                {
+                    "b": 120
+                }
+            ]
+        ]
+    }
+}
+#+END_SRC
+| testArr | [] | 1 | 2 | 3 | 4 | 
+to 
+#+BEGIN_SRC
+{
+    "testArr": [
+        1,
+        2,
+        3,
+        4,
+        5
+    ]
+}
+#+END_SRC  
