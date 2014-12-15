@@ -2,7 +2,7 @@
 ** config
 config works in =task.json=.
 =task.json= is an array of work object,
-each work object contains =input= , =sheet= , =range=, =output= the four property.
+each work object contains =input= , =sheet= , =range=, =output= the four properties.
 ** rules
 - Root is an object, not an array.
 - Parse assign range of file. Read range from top to bottom, from left to right.
