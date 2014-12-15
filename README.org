@@ -1,4 +1,6 @@
 * xlsx2json
+** usage
+=node app=
 ** config
 config works in =task.json=.
 =task.json= is an array of work object,
