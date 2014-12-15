@@ -107,6 +107,7 @@ function arrayOfArrayToJSON(arrOfArr) {
  * 将 a[1].b[3][4].c 转化为 'a',1,'b',3,4,'c', 并标明是 objKey 还是 arrIndex
  */
 function splitKey(complexKey) {
+    complexKey = complexKey.toString();
     var typeAndValueArr = [];
     var propertyArr = complexKey.split('.');
     for (var i = 0, length = propertyArr.length; i < length; i += 1) {
