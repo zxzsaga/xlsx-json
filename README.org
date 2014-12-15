@@ -1,4 +1,4 @@
-* xlsx2json
+* xlsx-json
 ** usage
 =node app=
 ** config
