@@ -2,13 +2,13 @@
 ** usage
 =node app=
 ** config
-config works in =task.json=.
+config work in =task.json=.
 =task.json= is an array of work object,
 each work object contains =input= , =sheet= , =range=, =output= the four properties.
 ** rules
 - Root is an object, not an array.
-- Parse assign range of file. Read range from top to bottom, from left to right.
-- Keys will be read like properties in JSON.
+- Parse assign range of file. Read file from top to bottom, from left to right.
+- Keys will be read like the properties in JSON.
   For example, =test.a[1][2].b= represent what it is in JSON.
   If the properties don't exist, they will be generated.
   So if the root doesn't have the property =test= before, it will be
