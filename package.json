@@ -1,6 +1,6 @@
 {
   "name": "xlsx-json",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "xlsx to json parser",
   "main": "index.js",
   "dependencies": {
