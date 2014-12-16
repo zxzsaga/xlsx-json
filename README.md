@@ -1,20 +1,3 @@
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1. xlsx-json</a>
-<ul>
-<li><a href="#sec-1-1">1.1. Installation</a></li>
-<li><a href="#sec-1-2">1.2. Usage</a></li>
-<li><a href="#sec-1-3">1.3. Config</a></li>
-<li><a href="#sec-1-4">1.4. Rules</a></li>
-<li><a href="#sec-1-5">1.5. Use Cases Is King</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-
 # xlsx-json<a id="sec-1" name="sec-1"></a>
 
 ## Installation<a id="sec-1-1" name="sec-1-1"></a>
@@ -70,6 +53,7 @@ each work object contains `input` , `sheet` , `range`, `output` the four propert
                 ]
             }
         }
+
 -   In normal cases, keys and values come in pairs.
     A non-empty value represent a key, and the element in next column is the value.
     You can write only one key-value pair in a row, you can also write several relative key-value pairs in a row if you like.
@@ -77,39 +61,10 @@ each work object contains `input` , `sheet` , `range`, `output` the four propert
     The elements in this row after the empty cell are the table head.
     From the next row, the concat of first element and the table head represent the key, the element in corresponding cell is the value.
     
-    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-    
-    
-    <colgroup>
-    <col  class="left" />
-    
-    <col  class="left" />
-    
-    <col  class="right" />
-    </colgroup>
-    <tbody>
-    <tr>
-    <td class="left">&#xa0;</td>
-    <td class="left">enabel</td>
-    <td class="right">actions</td>
-    </tr>
-    
-    
-    <tr>
-    <td class="left">battle.pve</td>
-    <td class="left">true</td>
-    <td class="right">1</td>
-    </tr>
-    
-    
-    <tr>
-    <td class="left">battle.pvp</td>
-    <td class="left">false</td>
-    <td class="right">2</td>
-    </tr>
-    </tbody>
-    </table>
-    
+        |            | enabel | actions |
+        | battle.pve | true   |       1 |
+        | battle.pvp | false  |       2 |
+
     will be parsed to
     
         {
@@ -124,59 +79,16 @@ each work object contains `input` , `sheet` , `range`, `output` the four propert
                 }
             }
         }
+
 -   If first two elements of a row are both empty, they will end a table.
     So you can use an empty row to end a table.
 -   If a value if `[]` , the next several consecutive elements will be pushed to this empty array.
 
 ## Use Cases Is King<a id="sec-1-5" name="sec-1-5"></a>
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-
-<col  class="right" />
-
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="right" />
-
-<col  class="left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">atk</td>
-<td class="right">100</td>
-<td class="left">def</td>
-<td class="left">200</td>
-<td class="right">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="left">speed</td>
-<td class="right">300</td>
-<td class="left">&#xa0;</td>
-<td class="left">power</td>
-<td class="right">400</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-
-<tr>
-<td class="left">hp</td>
-<td class="right">500</td>
-<td class="left">magic</td>
-<td class="left">&#xa0;</td>
-<td class="right">600</td>
-<td class="left">700</td>
-</tr>
-</tbody>
-</table>
+    | atk   | 100 | def   |   200 |     |     |
+    | speed | 300 |       | power | 400 |     |
+    | hp    | 500 | magic |       | 600 | 700 |
 
 to
 
@@ -191,21 +103,7 @@ to
 
 When `test` is undefined
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-
-<col  class="right" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">test.a.b</td>
-<td class="right">120</td>
-</tr>
-</tbody>
-</table>
+    | test.a[1][2].b | 120 |
 
 to
 
@@ -224,33 +122,9 @@ to
         }
     }
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+Array:
 
-
-<colgroup>
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="right" />
-
-<col  class="right" />
-
-<col  class="right" />
-
-<col  class="right" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">testArr</td>
-<td class="left">[]</td>
-<td class="right">1</td>
-<td class="right">2</td>
-<td class="right">3</td>
-<td class="right">4</td>
-</tr>
-</tbody>
-</table>
+    | testArr | [] | 1 | 2 | 3 | 4 |
 
 to
 
@@ -263,59 +137,13 @@ to
         ]
     }
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+Key concat:
 
-
-<colgroup>
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="right" />
-
-<col  class="left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">&#xa0;</td>
-<td class="left">enabel</td>
-<td class="right">actions</td>
-<td class="left">vipRequired</td>
-</tr>
-
-
-<tr>
-<td class="left">battle.pve</td>
-<td class="left">true</td>
-<td class="right">1</td>
-<td class="left">false</td>
-</tr>
-
-
-<tr>
-<td class="left">battle.pvp</td>
-<td class="left">false</td>
-<td class="right">2</td>
-<td class="left">false</td>
-</tr>
-
-
-<tr>
-<td class="left">battle.boss</td>
-<td class="left">false</td>
-<td class="right">3</td>
-<td class="left">true</td>
-</tr>
-
-
-<tr>
-<td class="left">battle.team</td>
-<td class="left">true</td>
-<td class="right">4</td>
-<td class="left">true</td>
-</tr>
-</tbody>
-</table>
+    |                 | enabel | actions | vipRequired |
+    | battle.pve      | true   |       1 | false       |
+    | battle.pvp      | false  |       2 | false       |
+    | battle.boss     | false  |       3 | true        |
+    | battle.team     | true   |       4 | true        |
 
 to
 
@@ -344,63 +172,12 @@ to
         }
     }
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+More complex:
 
-
-<colgroup>
-<col  class="left" />
-
-<col  class="right" />
-
-<col  class="right" />
-
-<col  class="right" />
-
-<col  class="right" />
-
-<col  class="right" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">&#xa0;</td>
-<td class="right">card.S</td>
-<td class="right">card.A</td>
-<td class="right">card.B</td>
-<td class="right">vip</td>
-<td class="right">bonus</td>
-</tr>
-
-
-<tr>
-<td class="left">rewards.1</td>
-<td class="right">900</td>
-<td class="right">600</td>
-<td class="right">450</td>
-<td class="right">3</td>
-<td class="right">8</td>
-</tr>
-
-
-<tr>
-<td class="left">rewards.2</td>
-<td class="right">1200</td>
-<td class="right">800</td>
-<td class="right">600</td>
-<td class="right">5</td>
-<td class="right">16</td>
-</tr>
-
-
-<tr>
-<td class="left">rewards.3</td>
-<td class="right">1800</td>
-<td class="right">1200</td>
-<td class="right">900</td>
-<td class="right">7</td>
-<td class="right">24</td>
-</tr>
-</tbody>
-</table>
+    |           | card.S | card.A | card.B | vip | bonus |
+    | rewards.1 |    900 |    600 |    450 |   3 |     8 |
+    | rewards.2 |   1200 |    800 |    600 |   5 |    16 |
+    | rewards.3 |   1800 |   1200 |    900 |   7 |    24 |
 
 to
 
@@ -436,58 +213,11 @@ to
         }
     }
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+Key contains array:
 
-
-<colgroup>
-<col  class="left" />
-
-<col  class="right" />
-
-<col  class="left" />
-
-<col  class="right" />
-
-<col  class="right" />
-
-<col  class="left" />
-
-<col  class="right" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">&#xa0;</td>
-<td class="right">.id</td>
-<td class="left">.type</td>
-<td class="right">.amount</td>
-<td class="right">.id</td>
-<td class="left">.type</td>
-<td class="right">.amount</td>
-</tr>
-
-
-<tr>
-<td class="left">rewards</td>
-<td class="right">1001</td>
-<td class="left">item</td>
-<td class="right">50</td>
-<td class="right">2001</td>
-<td class="left">equip</td>
-<td class="right">5</td>
-</tr>
-
-
-<tr>
-<td class="left">rewards</td>
-<td class="right">1002</td>
-<td class="left">item</td>
-<td class="right">100</td>
-<td class="right">2002</td>
-<td class="left">equip</td>
-<td class="right">10</td>
-</tr>
-</tbody>
-</table>
+    |            | [0].id | [0].type | [0].amount | [1].id | [1].type | [1].amount |
+    | rewards[0] |   1001 | item     |         50 |   2001 | equip    |          5 |
+    | rewards[1] |   1002 | item     |        100 |   2002 | equip    |         10 |
 
 to
 
@@ -521,17 +251,3 @@ to
     }
 
 **It's convenient and flexible, isn't it ?**
-
-<div id="footnotes">
-<h2 class="footnotes">Footnotes: </h2>
-<div id="text-footnotes">
-
-<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p>DEFINITION NOT FOUND.</p></div>
-
-<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p>DEFINITION NOT FOUND.</p></div>
-
-<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p>DEFINITION NOT FOUND.</p></div>
-
-
-</div>
-</div>
