@@ -1,0 +1,28 @@
+{
+    "rewards": [
+        [
+            {
+                "id": 1001,
+                "type": "item",
+                "amount": 50
+            },
+            {
+                "id": 2001,
+                "type": "equip",
+                "amount": 5
+            }
+        ],
+        [
+            {
+                "id": 1002,
+                "type": "item",
+                "amount": 100
+            },
+            {
+                "id": 2002,
+                "type": "equip",
+                "amount": 10
+            }
+        ]
+    ]
+}

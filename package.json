@@ -1,27 +1,27 @@
 {
-  "name": "xlsx2json",
-  "version": "0.0.1",
-  "description": "xlsx2json",
-  "main": "app.js",
+  "name": "xlsx-json",
+  "version": "0.0.3",
+  "description": "xlsx to json parser",
+  "main": "index.js",
   "dependencies": {
     "xlsx": "~0.7.12"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zxzsaga/xlsx2json.git"
+    "url": "https://github.com/zxzsaga/xlsx-json.git"
   },
   "keywords": [
     "xlsx",
     "json"
   ],
   "author": "Xuanzhi Zhang",
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zxzsaga/xlsx2json/issues"
+    "url": "https://github.com/zxzsaga/xlsx-json/issues"
   },
-  "homepage": "https://github.com/zxzsaga/xlsx2json"
+  "homepage": "https://github.com/zxzsaga/xlsx-json"
 }

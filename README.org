@@ -1,7 +1,9 @@
 * xlsx-json
-** usage
-=node app=
-** config
+** Installation
+#+BEGIN_SRC
+$ npm install xlsx-json
+#+END_SRC
+** Config
 config work in =task.json=.
 =task.json= is an array of work object,
 each work object contains =input= , =sheet= , =range=, =output= the four properties. It's like
@@ -15,7 +17,7 @@ each work object contains =input= , =sheet= , =range=, =output= the four propert
     }
 ]
 #+END_SRC
-** rules
+** Rules
 - Root is an object, not an array.
 - Parse assign range of file. Read file from top to bottom, from left to right.
 - Keys will be read like the properties in JSON.
