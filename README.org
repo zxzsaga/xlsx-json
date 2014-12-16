@@ -3,6 +3,17 @@
 #+BEGIN_SRC
 $ npm install xlsx-json
 #+END_SRC
+** Usage
+#+BEGIN_SRC
+var xlsx2json = require('xlsx-json');
+
+var config = require('./task.json');
+xlsx2json(config, function(err) {
+    if (err) {
+        console.log(err);
+    }
+});
+#+END_SRC
 ** Config
 config work in =task.json=.
 =task.json= is an array of work object,
