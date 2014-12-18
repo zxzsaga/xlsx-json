@@ -8,27 +8,39 @@
 
     var xlsx2json = require('xlsx-json');
     
-    var config = require('./task.json');
-    xlsx2json(config, function(err) {
+    var task = require('./task.json');
+    xlsx2json(task, function(err, jsonArr) {
         if (err) {
             console.log(err);
+            return;
         }
+        // Do sth with jsonArr
     });
 
 ## Config<a id="sec-1-3" name="sec-1-3"></a>
 
 config work in `task.json`.
 `task.json` is an array of work object,
-each work object contains `input` , `sheet` , `range`, `output` the four properties. It's like
+each work object contains `input` , `sheet` , `range`, `raw`, `output` the four properties. It's like
 
     [
         {
             "input": "xxx.xlsx",
             "sheet": "sheetName1",
             "range": "A1:H52",
+            "raw": true,
             "output": "xxxx.json"
+        },
+        {
+            "input": "yyy.xlsx",
+            "sheet": "sheetName2"
         }
     ]
+
+-   `input` and `sheet` are necessary, `range`, `raw` and `output` are optional.
+-   If `range` is not set, range will be the `!ref` range of the sheet. You can use this option to limit the range when you may write some comment in somewhere and you don't want to parse them.
+-   If `raw` is set to `true`, the sheet will be parsed to a two dimension array like the raw xlsx table.
+-   If `output` is not set, it won't write file. This option is just for convenience and you can handle the `jsonArr` and write it to files by your own.
 
 ## Rules<a id="sec-1-4" name="sec-1-4"></a>
 
@@ -90,7 +102,7 @@ each work object contains `input` , `sheet` , `range`, `output` the four propert
     | speed | 300 |       | power | 400 |     |
     | hp    | 500 | magic |       | 600 | 700 |
 
-to
+will be parsed to
 
     {
         "600": 700,
@@ -101,11 +113,41 @@ to
         "hp": 500
     }
 
-When `test` is undefined
+
+If the `raw` option is set to `true`, the above table will be parsed to
+
+    [
+        [
+            "atk",
+            100,
+            "def",
+            200,
+            null,
+            null
+        ],
+        [
+            "speed",
+            300,
+            null,
+            "power",
+            400,
+            null
+        ],
+        [
+            "hp",
+            500,
+            "magic",
+            null,
+            600,
+            700
+        ]
+    ]
+
+When `test` is undefined,
 
     | test.a[1][2].b | 120 |
 
-to
+will be parsed to
 
     {
         "test": {
@@ -126,7 +168,7 @@ Array:
 
     | testArr | [] | 1 | 2 | 3 | 4 |
 
-to
+will be parsed to
 
     {
         "testArr": [
@@ -145,7 +187,7 @@ Key concat:
     | battle.boss     | false  |       3 | true        |
     | battle.team     | true   |       4 | true        |
 
-to
+will be parsed to
 
     {
         "battle": {
@@ -179,7 +221,7 @@ More complex:
     | rewards.2 |   1200 |    800 |    600 |   5 |    16 |
     | rewards.3 |   1800 |   1200 |    900 |   7 |    24 |
 
-to
+will be parsed to
 
     {
         "rewards": {
@@ -219,7 +261,7 @@ Key contains array:
     | rewards[0] |   1001 | item     |         50 |   2001 | equip    |          5 |
     | rewards[1] |   1002 | item     |        100 |   2002 | equip    |         10 |
 
-to
+will parsed to
 
     {
         "rewards": [

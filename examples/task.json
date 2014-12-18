@@ -1,8 +1,19 @@
 [
     {
-        "input": "xxx.xlsx",
-        "sheet": "sheetName1",
-        "range": "A1:H52",
-        "output": "xxxx.json"
+        "input":  "xxx.xlsx",
+        "sheet":  "sheetName1",
+        "range":  "A1:H52",
+        "output": "xxxx.json",
+        "raw": "true"
+    },
+    {
+        "input":  "yyy.xlsx",
+        "sheet":  "sheetName1",
+        "range":  "A1:H52"
+    },
+    {
+        "input":  "zzz.xlsx",
+        "sheet":  "sheetName1",
+        "output": "zzzzz.json"
     }
 ]
