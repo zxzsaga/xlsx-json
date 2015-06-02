@@ -96,7 +96,7 @@ each work object contains `input` , `sheet` , `range`, `raw`, `output` the four 
     So you can use an empty row to end a table.
 -   If a value if `[]` , the next several consecutive elements will be pushed to this empty array.
 
-## Use Cases Is King<a id="sec-1-5" name="sec-1-5"></a>
+## Use Cases<a id="sec-1-5" name="sec-1-5"></a>
 
     | atk   | 100 | def   |   200 |     |     |
     | speed | 300 |       | power | 400 |     |
